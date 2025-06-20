@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Food } from "../index.js";
+import { Food } from "../models/food.model.js";
 
 export const getAllFoods = async (request: Request, response: Response) => {
   try {
@@ -42,6 +42,16 @@ export const updateFood = (request: Request, response: Response) => {
   response.send("food/:foodId Patch huselt irlee");
 };
 
-export const deleteFood = (request: Request, response: Response) => {
-  response.send("food/:foodId Delete huselt irlee");
+export const deleteFood = async (request: Request, response: Response) => {
+  try {
+    const deleted = await Food.findByIdAndDelete(request.params.foodId);
+    if (!deleted) {
+      return response
+        .status(404)
+        .json({ success: false, message: "Food not found" });
+    }
+    response.json({ success: true, message: "Food deleted" });
+  } catch (error) {
+    response.status(400).json({ success: false, error });
+  }
 };

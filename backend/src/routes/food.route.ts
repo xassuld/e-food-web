@@ -9,10 +9,10 @@ import {
 
 const foodsRouter = express.Router();
 
-foodsRouter.get("/", getAllFoods);
-foodsRouter.post("/", createFood);
-foodsRouter.patch("/:foodId", updateFood);
-foodsRouter.delete("/:foodId", deleteFood);
-foodsRouter.get("/:foodId", getFoodByid);
+foodsRouter.get("/", getAllFoods); // GET all foods
+foodsRouter.post("/", createFood); // POST create new food
+foodsRouter.get("/:foodId", getFoodByid); // GET single food
+foodsRouter.patch("/:foodId", updateFood); // PATCH update food
+foodsRouter.delete("/:foodId", deleteFood); // DELETE food
 
 export default foodsRouter;

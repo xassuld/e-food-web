@@ -4,12 +4,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx --watch src/index.ts",
-    "start": "node dist/index.js",
+    "start": "tsx src/index.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "server": "nodemon index.js",
+    "server": "nodemon --watch src --ext ts --exec tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,8 +19,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "mongoose": "^8.16.0",
-    "nodemon": "^3.1.10"
+    "mongoose": "^8.16.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
@@ -29,6 +28,7 @@
     "@types/node": "^24.0.3",
     "eslint": "^9.29.0",
     "eslint-plugin-perfectionist": "^4.15.0",
+    "nodemon": "^3.1.10",
     "prettier": "^3.5.3",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
