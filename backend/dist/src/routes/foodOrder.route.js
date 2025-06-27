@@ -1,0 +1,10 @@
+import express from "express";
+import { getAllFoodOrders, getFoodOrderById, getFoodOrdersByUser, createFoodOrder, updateFoodOrderStatus, deleteFoodOrder, } from "../controllers/foodOrder.controller.js";
+const foodOrderRouter = express.Router();
+foodOrderRouter.post("/", createFoodOrder);
+foodOrderRouter.get("/", getAllFoodOrders);
+foodOrderRouter.get("/:orderId", getFoodOrderById);
+foodOrderRouter.get("/user/:userId", getFoodOrdersByUser);
+foodOrderRouter.patch("/:orderId", updateFoodOrderStatus);
+foodOrderRouter.delete("/:orderId", deleteFoodOrder);
+export default foodOrderRouter;
