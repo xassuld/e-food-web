@@ -1,4 +1,4 @@
-import Account from "../components/container";
+import Account from "../hasa/container";
 export default function Home() {
   return (
     <div className="w-screen h-screen flex bg-white items-center justify-around">

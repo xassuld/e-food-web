@@ -8,11 +8,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI as string);
+mongoose.connect(process.env.MONGO_URI || "");
 const server = express();
 server.use(express.json());
 
-const port = process.env.PORT;
+const port = process.env.PORT || "";
 
 server.use("/food", foodsRouter);
 server.use("/food-order", foodOrderRouter);
