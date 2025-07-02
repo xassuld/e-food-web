@@ -1,15 +1,12 @@
-import Account from "../hasa/container";
+import Account from "../../hasa/sign-up";
 export default function Home() {
   return (
     <div className="w-screen h-screen flex bg-white items-center justify-around">
       <div>
-        <Account />
+        <Account text="Create your account" />
       </div>
       <div>
-        <img
-          src="kai-pilger-tL92LY152Sk-unsplash 1.png"
-          className="w-[856px] h-[904px] rounded-2xl"
-        />
+        <img src="/hero.png" className="w-[1200px] h-[1000px] rounded-2xl" />
       </div>
     </div>
   );
