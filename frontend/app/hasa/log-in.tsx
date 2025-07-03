@@ -2,7 +2,7 @@
 import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-function Password({ text }: { text: string }) {
+function Login({ text }: { text: string }) {
   const router = useRouter();
 
   const handleLoginRedirect = () => {
@@ -60,4 +60,4 @@ function Password({ text }: { text: string }) {
   );
 }
 
-export default Password;
+export default Login;

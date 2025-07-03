@@ -30,7 +30,7 @@ function Account({ text }: { text: string }) {
 
   const onSubmit = (data: EmailFormData) => {
     console.log("Validated Email Data:", data);
-    router.push("/home-page"); // navigate on valid submit
+    router.push("/go-to-account/create-account/password");
   };
 
   const handleBack = () => {
