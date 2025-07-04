@@ -1,17 +1,35 @@
+"use client";
+
 import { ChevronLeft } from "lucide-react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 
 const passSchema = yup.object({
   password: yup
     .string()
-    .matches(/@gmail\.com$/, "Email must be a Gmail address")
-    .required("Please enter your email"),
+    .required("Please enter your password")
+    .min(8, "Password must be at least 8 characters"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password")], "Passwords do not match")
+    .required("Please confirm your password"),
 });
 
-type EmailFormData = yup.InferType<typeof passSchema>;
+type PassFormData = yup.InferType<typeof passSchema>;
 
 export default function Password() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<PassFormData>({
+    resolver: yupResolver(passSchema),
+  });
+
+  const onSubmit = (data: PassFormData) => {
+    console.log("Passwords match, data submitted:", data);
+  };
   return (
     <div className="w-screen h-screen flex bg-white items-center justify-around">
       <div className="flex w-[416px] flex-col justify-center items-start gap-6">
@@ -29,18 +47,31 @@ export default function Password() {
         </div>
 
         {/* PASSWORD FORM */}
-        <form className="w-full flex flex-col gap-4">
+        <form
+          className="w-full flex flex-col gap-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="w-full flex flex-col gap-3">
             <input
               type="password"
               placeholder="Enter your password"
+              {...register("password")}
               className="border w-full px-2 py-[12px] rounded-[6px]"
             />
+            {errors.password && (
+              <p className="text-red-500 text-sm">{errors.password.message}</p>
+            )}
             <input
               type="password"
               placeholder="Confirm password"
+              {...register("confirmPassword")}
               className="border w-full px-2 py-[12px] rounded-[6px]"
             />
+            {errors.confirmPassword && (
+              <p className="text-red-500 text-sm">
+                {errors.confirmPassword.message}
+              </p>
+            )}
           </div>
 
           {/* LET'S GO */}
