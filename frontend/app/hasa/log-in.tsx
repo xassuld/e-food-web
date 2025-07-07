@@ -13,6 +13,10 @@ function Login({ text }: { text: string }) {
     router.push("/");
   };
 
+  const handlePassRedirect = () => {
+    router.push("/go-to-account/create-account/check");
+  };
+
   return (
     <div className="flex w-[416px] flex-col justify-center items-start gap-6">
       {/* ICON */}
@@ -25,7 +29,7 @@ function Login({ text }: { text: string }) {
 
       {/* HEADER */}
       <div className="flex flex-col items-start gap-1">
-        <h3 className="text-[24px] font-[600]">{text}</h3>
+        <h3 className="text-[24px] font-[600]">Enter Your Email</h3>
         <p className="text-[16px] font-[400] text-[#71717A]">
           Log in to explore your favorite dishes.
         </p>
@@ -41,7 +45,10 @@ function Login({ text }: { text: string }) {
       </div>
 
       {/* LET'S GO */}
-      <button className="flex h-[36px] py-[32px] justify-center items-center w-full rounded-[6px] hover:cursor-pointer transition bg-black">
+      <button
+        className="flex h-[36px] py-[32px] justify-center items-center w-full rounded-[6px] hover:cursor-pointer transition bg-black"
+        onClick={handlePassRedirect}
+      >
         <p className="text-[14px] font-[500] text-white">Let's Go</p>
       </button>
 

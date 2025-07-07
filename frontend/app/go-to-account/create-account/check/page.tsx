@@ -30,8 +30,8 @@ export default function Password({ text }: { text: string }) {
 
   const router = useRouter();
 
-  const handleLoginRedirect = () => {
-    router.push("/go-to-account/log-in");
+  const handleSigninDirect = () => {
+    router.push("/go-to-account/create-account");
   };
 
   const handleLetsGoRedirect = () => {
@@ -51,9 +51,9 @@ export default function Password({ text }: { text: string }) {
 
         {/* HEADER */}
         <div className="flex flex-col items-start gap-1">
-          <h3 className="text-[24px] font-[600]">Create a Password</h3>
+          <h3 className="text-[24px] font-[600]">Enter Your Password</h3>
           <p className="text-[16px] font-[400] text-[#71717A]">
-            Sign up to explore your favorite dishes.
+            Log up to explore your favorite dishes.
           </p>
         </div>
 
@@ -100,9 +100,9 @@ export default function Password({ text }: { text: string }) {
           <p className="text-[16px] font-[400] text-[#71717A]">
             Already have an account?
           </p>
-          <div onClick={handleLoginRedirect}>
+          <div onClick={handleSigninDirect}>
             <p className="text-[16px] font-[400] text-[#2563EB] hover:cursor-pointer hover:underline">
-              Log in
+              Sign Up
             </p>
           </div>
         </div>

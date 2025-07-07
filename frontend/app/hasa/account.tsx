@@ -41,6 +41,10 @@ function Account({ text }: { text: string }) {
     router.push("/go-to-account/log-in");
   };
 
+  const handleLetsGoRedirect = () => {
+    router.push("/");
+  };
+
   return (
     <div className="flex w-[416px] flex-col justify-center items-start gap-6">
       {/* ICON */}
@@ -88,6 +92,7 @@ function Account({ text }: { text: string }) {
                 ? "bg-black text-white hover:bg-[#434343]"
                 : "bg-black text-white"
             }`}
+          onClick={handleLetsGoRedirect}
         >
           <p className="text-[14px] font-[500]">Let's Go</p>
         </button>
