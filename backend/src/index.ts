@@ -8,7 +8,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI || "");
+mongoose.connect(
+  "mongodb+srv://xassuld:<Hasaahassuld_1>@cluster0.kie4vix.mongodb.net/"
+);
 const server = express();
 server.use(express.json());
 
